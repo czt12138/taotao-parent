@@ -1,0 +1,21 @@
+group 'com.czt'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    //添加pojo的依赖，因为接口里面的方法参数 |  返回值都有可能是一个对象类型
+    compile project(':taotao-pojo')
+
+
+    //分页插件
+    compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.2.3'
+}

@@ -1,0 +1,21 @@
+group 'com.czt'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    //添加通用Mapper的依赖
+    compile group: 'tk.mybatis', name: 'mapper-spring-boot-starter', version: '1.1.5'
+
+
+    //添加taotao-pojo的依赖
+    compile project(':taotao-pojo')
+}

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: cn.bestwu:fastdfs-client-java:1.27">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.bestwu/fastdfs-client-java/1.27/371b1c9d19e2cddac695bba304e49a4ddca351ff/fastdfs-client-java-1.27.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.bestwu/fastdfs-client-java/1.27/1daeaaece5a6b40aa7ffebee01c547bd8a43882c/fastdfs-client-java-1.27-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

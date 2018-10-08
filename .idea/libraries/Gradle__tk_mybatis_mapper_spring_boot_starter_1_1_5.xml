@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: tk.mybatis:mapper-spring-boot-starter:1.1.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/tk.mybatis/mapper-spring-boot-starter/1.1.5/7cfc4a14e05d131611ddb23542150c007eb72023/mapper-spring-boot-starter-1.1.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/tk.mybatis/mapper-spring-boot-starter/1.1.5/437136eab3f828cd8a4c79e4bde9f2d6a94bf21d/mapper-spring-boot-starter-1.1.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

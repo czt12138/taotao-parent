@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+    </wildcardResourcePatterns>
+    <bytecodeTargetLevel>
+      <module name="manager_main" target="1.8" />
+      <module name="manager_test" target="1.8" />
+      <module name="taotao-common_main" target="1.8" />
+      <module name="taotao-common_test" target="1.8" />
+      <module name="taotao-interface_main" target="1.8" />
+      <module name="taotao-interface_test" target="1.8" />
+      <module name="taotao-manager_main" target="1.8" />
+      <module name="taotao-manager_test" target="1.8" />
+      <module name="taotao-mapper_main" target="1.8" />
+      <module name="taotao-mapper_test" target="1.8" />
+      <module name="taotao-parent_main" target="1.8" />
+      <module name="taotao-parent_test" target="1.8" />
+      <module name="taotao-pojo_main" target="1.8" />
+      <module name="taotao-pojo_test" target="1.8" />
+      <module name="taotao-portal_main" target="1.8" />
+      <module name="taotao-portal_test" target="1.8" />
+      <module name="taotao-service_main" target="1.8" />
+      <module name="taotao-service_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

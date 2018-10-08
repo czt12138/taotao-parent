@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.dubbo.springboot:spring-boot-starter-dubbo:1.0.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.dubbo.springboot/spring-boot-starter-dubbo/1.0.0/4af1044c27ce446e495c7ea954473b306657b259/spring-boot-starter-dubbo-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.dubbo.springboot/spring-boot-starter-dubbo/1.0.0/3e30db51b2dcb2e2d6a9ec22ec53b972e0d7898f/spring-boot-starter-dubbo-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
