@@ -41,6 +41,8 @@ public class ItemController {
 
          }
 
+
+
     @RequestMapping(value = "/rest/item", method = RequestMethod.GET)
     @ResponseBody
          public  Map<String, Object> list(int page,int rows) {
@@ -59,4 +61,58 @@ public class ItemController {
         return map ;
     }
 
+    @RequestMapping(value = "/rest/item/desc/item_id",method = RequestMethod.POST)
+    @ResponseBody
+    public String show_desc(long item_id){
+
+        int result = itemService.show_desc(item_id);
+        System.out.println("result=" + result);
+
+        return  "success!!";
+
     }
+
+    @RequestMapping(value = "/rest/item/cat/id",method = RequestMethod.POST)
+    @ResponseBody
+    public String show_cat(int id){
+
+        int result = itemService.show_cat(id);
+        System.out.println("result=" + result);
+
+        return  "success!!";
+
+    }
+
+
+    @RequestMapping(value = "/rest/item/update",method = RequestMethod.POST)
+    @ResponseBody
+    public String updateItem(Item item){
+
+           int result = itemService.updateItem(item);
+           System.out.println("result=" + result);
+
+        return  "success!!";
+
+    }
+
+    @RequestMapping("/rest/item/delete")
+    @ResponseBody
+    public Map<String,Object> deleteItem(String  ids){
+
+         Map<String,Object> map = new HashMap<>();
+
+        int result = itemService.deleteItem(ids);
+         if(result>0){
+             map.put("status",200);
+         }
+         else{
+             map.put("status",500);
+         }
+
+         return map;
+    }
+
+
+
+
+}

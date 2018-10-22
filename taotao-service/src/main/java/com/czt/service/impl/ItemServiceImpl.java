@@ -53,8 +53,8 @@ public class ItemServiceImpl implements ItemService {
 
         itemDesc.setItemId(id);
         itemDesc.setItemDesc(desc);
-        item.setCreated(new Date());
-        item.setUpdated(new Date());
+        itemDesc.setCreated(new Date());
+        itemDesc.setUpdated(new Date());
 
         itemDescMapper.insertSelective(itemDesc);
 
@@ -71,4 +71,60 @@ public class ItemServiceImpl implements ItemService {
 
         return new PageInfo<Item>(list);
     }
+
+    @Override
+    public int show_desc(long item_id) {
+
+        ItemDesc itemDesc = new ItemDesc();
+        itemDesc.setItemId(item_id);
+
+       int result = itemDescMapper.updateByPrimaryKeySelective(itemDesc);
+
+        System.out.println("result=" + result);
+
+        return result;
+
+    }
+
+    @Override
+    public int show_cat(long id) {
+
+        Item item = new Item();
+        item.setId(id);
+        int result = itemMapper.updateByPrimaryKeySelective(item);
+        System.out.println("result=" + result);
+
+        return result;
+    }
+
+
+    @Override
+    public int updateItem(Item item){
+
+         int result = itemMapper.updateByPrimaryKeySelective(item);
+
+        System.out.println("result:"+result);
+
+        return result;
+    }
+
+    @Override
+    public int deleteItem(String  ids) {
+
+
+        int result = 0;
+        for (String s : ids.split(",")){
+
+             result += itemMapper.deleteByPrimaryKey(Long.parseLong(s));
+
+        }
+        return  result;
+
+    }
+
+
+
+
+
+
 }

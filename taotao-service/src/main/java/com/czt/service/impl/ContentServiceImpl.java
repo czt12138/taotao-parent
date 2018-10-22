@@ -4,7 +4,12 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.czt.mapper.ContentMapper;
 import com.czt.pojo.Content;
 import com.czt.service.ContentService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Date;
+import java.util.List;
 
 /*
  *  @项目名：  taotao-parent 
@@ -20,12 +25,56 @@ public class ContentServiceImpl implements ContentService {
     @Autowired
     private ContentMapper contentMapper;
 
-
     @Override
     public int add(Content content) {
 
-     return    contentMapper.insert(content);
+        content.setCreated(new Date());
+        content.setUpdated(new Date());
 
+        int result  = contentMapper.insert(content);
+
+
+        return result;
+    }
+
+    @Override
+    public PageInfo<Content> list(long categoryId, int page, int rows) {
+
+        //1. 分页的设置
+        PageHelper.startPage(page , rows);
+
+
+        //
+        Content content = new Content();
+        content.setCategoryId(categoryId);
+        List<Content> list = contentMapper.select(content);
+
+
+        return new PageInfo<>(list);
+    }
+
+    @Override
+    public int edit(Content content) {
+
+        content.setUpdated(new Date());
+
+        int result = contentMapper.updateByPrimaryKeySelective(content);
+
+        return result;
+    }
+
+    @Override
+    public int delete(String ids) {////ids: 97,98  | ids:97
+
+       /* Content c = new Content();
+        c.setId(id);
+    */
+        int result = 0 ;
+        for (String id : ids.split(",")) {
+            result += contentMapper.deleteByPrimaryKey(Long.parseLong(id));
+        }
+
+        return result ;
     }
 
 }

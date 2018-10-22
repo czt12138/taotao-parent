@@ -1,6 +1,7 @@
 package com.czt.service;
 
 import com.czt.pojo.Content;
+import com.github.pagehelper.PageInfo;
 
 /*
  *  @项目名：  taotao-parent 
@@ -13,4 +14,10 @@ import com.czt.pojo.Content;
 public interface ContentService {
 
     int add(Content content);
+
+    PageInfo<Content> list(long categoryId , int page , int rows);
+
+    int edit(Content content);
+
+    int delete(String ids);
 }

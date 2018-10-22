@@ -16,4 +16,14 @@ public interface ItemService {
     int addItem(Item item,String desc);
 
     PageInfo<Item> list(int page, int rows);
+
+    int show_desc(long item_id);
+
+    int show_cat(long id);
+
+    int updateItem(Item item);
+
+    int deleteItem(String  ids);
+
+
 }
