@@ -1,7 +1,9 @@
 package com.czt;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /*
  *  @项目名：  taotao-parent 
@@ -13,8 +15,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 //设置自动检测工作，不包含数据源的检测
-//@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
 
+//@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
 @SpringBootApplication
 public class ServiceApp {
 

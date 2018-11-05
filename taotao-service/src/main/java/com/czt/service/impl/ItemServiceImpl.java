@@ -33,9 +33,6 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public int addItem(Item item, String desc) {
 
-        //添加Item表
-        //itemMapper.insert(); //添加数据
-        //itemMapper.insertSelective(); //添加数据  Selective：有选择性
 
         //从页面传递过来的Item还不完整
         long id = (long) (System.currentTimeMillis() + Math.random() * 10000);

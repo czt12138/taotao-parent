@@ -272,6 +272,23 @@ public class Content implements java.io.Serializable {
         return this.updated;
     }
 
+    @Override
+    public String toString() {
+        return "Content{" +
+                "id=" + id +
+                ", categoryId=" + categoryId +
+                ", title='" + title + '\'' +
+                ", subTitle='" + subTitle + '\'' +
+                ", titleDesc='" + titleDesc + '\'' +
+                ", url='" + url + '\'' +
+                ", pic='" + pic + '\'' +
+                ", pic2='" + pic2 + '\'' +
+                ", content='" + content + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
+                '}';
+    }
+
     /**
      * 设置
      * 

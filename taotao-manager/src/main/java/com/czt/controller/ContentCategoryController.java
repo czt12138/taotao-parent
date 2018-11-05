@@ -50,7 +50,7 @@ public class ContentCategoryController {
 
     @RequestMapping("/rest/content/category/update")
     @ResponseBody
-    public  String update(ContentCategory contentCategory){ // id,name
+    public  String update(ContentCategory contentCategory){
 
         service.update(contentCategory);
 
@@ -60,7 +60,7 @@ public class ContentCategoryController {
 
     @RequestMapping("/rest/content/category/delete")
     @ResponseBody
-    public  String delete(ContentCategory contentCategory){ // id,parentId
+    public  String delete(ContentCategory contentCategory){
 
         int result = service.delete(contentCategory);
 

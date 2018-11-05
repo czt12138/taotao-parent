@@ -29,8 +29,6 @@ public class ItemCatController {
         public List<ItemCat> getCategoryByParentId(@RequestParam(defaultValue = "0") long id) {
 
         //默认先获取所有的一级分类
-        //int parentId = 0 ;
-
         List<ItemCat> list = itemCatService.getCategoryByParentId(id);
 
         System.out.println("list==" + list);

@@ -7,4 +7,6 @@ include 'taotao-manager'
 include 'taotao-interface'
 include 'taotao-common'
 include 'taotao-portal'
+include 'taotao-sso-web'
+include 'taotao-sso-service'
 

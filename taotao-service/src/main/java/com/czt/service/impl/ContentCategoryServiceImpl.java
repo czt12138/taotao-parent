@@ -48,10 +48,8 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 
         mapper.insert(contentCategory);
 
-        //上面代码针对的场景是：父级分类下创建子分类。如果我们是在子分类AA下创建了子分类BB。
-        //那么上面代码只能添加子分类BB，并不会把子分类AA变成父级分类。
 
-        //2.判断当前分类的父亲是不是子分类，如果是，把它变成父级分类。
+        //判断当前分类的父亲是不是子分类，如果是，把它变成父级分类。
 
         Long parentId = contentCategory.getParentId();
         ContentCategory parentcategory = mapper.selectByPrimaryKey(parentId);
@@ -65,12 +63,6 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
          }
 
          mapper.updateByPrimaryKeySelective(parentcategory);
-
-         //要返回对象，对象还是当前操作的添加对象。
-
-        //这里返回的对象没有id，所以后面更新的时候，就不知道更新的是哪一个分类。
-
-
         System.out.println("contentCategory=" + contentCategory);
 
         return  contentCategory;
@@ -90,8 +82,6 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
     @Override
     public int delete(ContentCategory contentCategory) {
 
-        //只删除子级分类
-        //int result = mapper.deleteByPrimaryKey(contentCategory);
 
         //考虑删除父级分类
 
@@ -109,7 +99,7 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
         int result = deleteAll(list);
 
         //按照parentid去查询总数。
-        //删除BBB，那么AAA下面没有子级分类，所以它应该变成子级分类，而不是父级分类。
+
         ContentCategory c = new ContentCategory();
         c.setParentId(contentCategory.getParentId());
         int count = mapper.selectCount(c);

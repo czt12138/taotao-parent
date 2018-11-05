@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id=":taotao-service:test" external.linked.project.path="$MODULE_DIR$/../../../taotao-service" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="com.czt" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+<module external.linked.project.id=":taotao-sso-service:test" external.linked.project.path="$MODULE_DIR$/../../../taotao-sso-service" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="com.czt" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration />
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output-test url="file://$MODULE_DIR$/../../../taotao-service/out/test/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../taotao-sso-service/out/test/classes" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../../taotao-service/src/test">
-      <sourceFolder url="file://$MODULE_DIR$/../../../taotao-service/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../taotao-service/src/test/resources" type="java-test-resource" />
+    <content url="file://$MODULE_DIR$/../../../taotao-sso-service/src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../../taotao-sso-service/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../taotao-sso-service/src/test/resources" type="java-test-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="taotao-service_main" />
+    <orderEntry type="module" module-name="taotao-sso-service_main" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-web:1.5.10.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: com.alibaba:druid:1.1.5" level="project" />
     <orderEntry type="library" name="Gradle: org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.1" level="project" />
@@ -89,5 +89,5 @@
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-autoconfigure:1.5.10.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot:1.5.10.RELEASE" level="project" />
   </component>
-  <component name="TestModuleProperties" production-module="taotao-service_main" />
+  <component name="TestModuleProperties" production-module="taotao-sso-service_main" />
 </module>

@@ -34,19 +34,6 @@ public class UploadController {
     @Autowired
     private ObjectMapper objectMapper;
 
-
-    /***
-     * 基于SpringMVC文件上传
-     * @param file
-     * @param session
-     * @return
-     * @throws Exception
-     *
-     * @ResponseBody
-     * Map<String, Object>
-     * 这样子响应的数据类型为Json数据类型，而富文本编辑器解析对Json不兼容，兼容文本类型，所以需要将响应数据转成字符串
-     *
-     */
     @ResponseBody
     @RequestMapping(value="/rest/pic/upload",method= RequestMethod.POST)
     public String upload(@RequestParam(value="uploadFile")MultipartFile file, HttpSession session) throws Exception{
@@ -55,7 +42,6 @@ public class UploadController {
         //获取文件后缀
         String subfix = StringUtils.substringAfterLast(file.getOriginalFilename(), ".");
 
-       // String TrackerServer = "tracker_server=192.168.227.131:22122";
 
         //获取resources 地址路径
         String path = System.getProperty("user.dir")+"/src/main/resources/";
@@ -67,14 +53,6 @@ public class UploadController {
         for (String string : uploadinfos) {
             System.out.println(string);
         }
-
-
-        /****
-         * error   	0标识成功，1失败
-         * url		成功后文件访问地址
-         * height	高度
-         * width	宽度
-         */
         Map<String, Object> map = new HashMap<String,Object>();
         map.put("error", 0);
         map.put("url", "http://image.taotao.com/"+uploadinfos[0]+"/"+uploadinfos[1]);

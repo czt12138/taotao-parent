@@ -8,7 +8,7 @@ package com.czt.service.impl;
  *  @创建时间:  2018/9/10 14:24
  *  @描述：    TODO
  */
- //注意，这个注解使用的是dubbo的注解，而不是Spring提供的@Service
+
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.czt.mapper.UserMapper;
@@ -30,13 +30,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save() {
-        System.out.println("调用了UserServiceImpl的save方法~！");
+        System.out.println("调用了save方法~！");
     }
 
     @Override
     public List<User> selectAll() {
 
-        //service肯定要去调用mapper
+
         return userMapper.selectAll();
     }
 

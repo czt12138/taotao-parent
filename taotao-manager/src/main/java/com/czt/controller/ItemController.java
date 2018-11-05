@@ -27,7 +27,7 @@ public class ItemController {
     @Reference
     private ItemService itemService;
 
-    //添加商品的时候，大部分内容都会转载到Item对象里面去，然后Item对象要添加到item表里
+    //添加商品Item对象要添加到item表里
     //商品的描述，使用desc来接受，然后要添加到item_desc表里
          @RequestMapping(value = "/rest/item", method = RequestMethod.POST)
          @ResponseBody

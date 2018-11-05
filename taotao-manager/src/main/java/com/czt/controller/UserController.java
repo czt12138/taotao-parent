@@ -19,27 +19,21 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    //这个UserService 在别的项目，那么这个项目如何依赖别的项目呢？
-    //需要在build.gradle里面添加
 
-    //@Autowired的意思就是在这个项目里面的Spring容器中寻找userService的实现类实例。但是很抱歉这个项目并没有包含UserServiceImpl
-    //@Autowired
-
-
-     // @Reference //注意： 这里使用的是dubbo的注解
+     // @Reference 注意： 这里使用的是dubbo的注解
       private UserService userService;
 
     @RequestMapping("save")
         public String save(){
 
-            System.out.println("调用了UserController的save方法！！");
+            System.out.println("调用了save方法！！");
 
             return  "success!!";
         }
 
     @RequestMapping("selectAll")
     public String  selectAll(){
-        System.out.println("调用了UserController的selectAll方法~！·");
+        System.out.println("调用了selectAll方法~！·");
 
 
         List<User> list = userService.selectAll();
@@ -47,9 +41,7 @@ public class UserController {
         for(User user: list){
             System.out.println("user=" + user);
         }
-
-
-        return "save scuccess~!~!";
+        return "scuccess~!~!";
     }
 
 

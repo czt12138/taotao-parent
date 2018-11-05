@@ -36,18 +36,11 @@ public class ContentController {
 
     }
 
-    //categoryId=91&page=1&rows=20
+
     @GetMapping("/rest/content")
     public Map<String , Object> list(long categoryId , int page , int rows){
 
         PageInfo<Content> pageInfo = contentService.list(categoryId, page, rows);
-        /*
-            bushi easyUI 显示列表数据：
-            json格式的数据
-
-            total:200
-            rows: [{},{},{}]
-         */
 
         Map<String , Object> map  = new HashMap<String ,Object>();
         map.put("total",pageInfo.getTotal());
@@ -60,8 +53,6 @@ public class ContentController {
     public  Map<String , Object> edit(Content content){
 
         int result = contentService.edit(content);
-
-        //System.out.println("result=" + result);
 
         Map<String , Object> map = new HashMap<>();
 
@@ -77,7 +68,7 @@ public class ContentController {
 
 
     @RequestMapping("/rest/content/delete")
-    public  Map<String , Object> delete(String ids){//ids: 97,98  | ids:97
+    public  Map<String , Object> delete(String ids){
 
 
         int result = contentService.delete(ids);

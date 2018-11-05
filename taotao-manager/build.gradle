@@ -32,9 +32,12 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
 
 
+
+
     //taotao-manager这个项目依赖了taotao-service这个项目
     compile project(':taotao-interface')
 
     //taotao-manager这个项目依赖了taotao-common这个项目
     compile project(':taotao-common')
+
 }

@@ -26,25 +26,11 @@ public class ItemCatServiceImpl implements ItemCatService {
     public List<ItemCat> getCategoryByParentId(long parentId) {
 
 
-
         //按照普通列来查询。
         ItemCat itemCat = new ItemCat();
-
-        //long val = Long.parseLong(parentId+"");
         itemCat.setParentId(parentId);
-
         //selectByExample 里面使用的是criteria 查询条件对象。
         return   itemCatMapper.select(itemCat);
-
-       /* Example example = new Example(ItemCat.class);
-        example.createCriteria().andEqualTo("username","zhangsan");
-        itemCatMapper.selectByExample(example);*/
-
-        //想按照学生的姓名来查询
-        /*Student  stu = new Student();
-        stu.setName("张三")
-        itemCatMapper.select(Student);*/
-
 
     }
 }

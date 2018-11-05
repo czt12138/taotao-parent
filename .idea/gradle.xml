@@ -17,6 +17,8 @@
             <option value="$PROJECT_DIR$/taotao-pojo" />
             <option value="$PROJECT_DIR$/taotao-portal" />
             <option value="$PROJECT_DIR$/taotao-service" />
+            <option value="$PROJECT_DIR$/taotao-sso-service" />
+            <option value="$PROJECT_DIR$/taotao-sso-web" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />

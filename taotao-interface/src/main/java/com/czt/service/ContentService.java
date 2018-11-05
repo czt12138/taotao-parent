@@ -20,4 +20,6 @@ public interface ContentService {
     int edit(Content content);
 
     int delete(String ids);
+
+    String  selectByCategoryId(long cid);
 }
