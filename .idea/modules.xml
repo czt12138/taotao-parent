@@ -24,6 +24,15 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-portal.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-portal.iml" group="taotao-portal" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-portal/taotao-portal_main.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-portal/taotao-portal_main.iml" group="taotao-portal" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-portal/taotao-portal_test.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-portal/taotao-portal_test.iml" group="taotao-portal" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-search-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-search-interface.iml" group="taotao-search-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-search-interface/taotao-search-interface_main.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-search-interface/taotao-search-interface_main.iml" group="taotao-search-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-search-interface/taotao-search-interface_test.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-search-interface/taotao-search-interface_test.iml" group="taotao-search-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-search-service.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-search-service.iml" group="taotao-search-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-search-service/taotao-search-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-search-service/taotao-search-service_main.iml" group="taotao-search-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-search-service/taotao-search-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-search-service/taotao-search-service_test.iml" group="taotao-search-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-search-web.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-search-web.iml" group="taotao-search-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-search-web/taotao-search-web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-search-web/taotao-search-web_main.iml" group="taotao-search-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-search-web/taotao-search-web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-search-web/taotao-search-web_test.iml" group="taotao-search-web" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-service.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-service.iml" group="taotao-service" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-service/taotao-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-service/taotao-service_main.iml" group="taotao-service" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-service/taotao-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-service/taotao-service_test.iml" group="taotao-service" />

@@ -4,14 +4,11 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.czt.mapper.UserMapper;
 import com.czt.pojo.User;
 import com.czt.service.UserService;
-import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.util.DigestUtils;
 
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 /*
  *  @项目名：  taotao-parent 
@@ -34,8 +31,27 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean check(String param, int type) {
 
+        User user = new User();
 
-        return null;
+        switch (type){
+            case  1:
+                user.setUsername(param);
+                break;
+            case 2:
+                user.setPhone(param);
+                break;
+            case 3:
+                user.setEmail(param);
+                break;
+            default:
+                user.setUsername(param);
+                break;
+
+        }
+
+        List<User> list = userMapper.select(user);
+
+        return list.size()>0?false:true;
 
 
     }
@@ -43,7 +59,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public String selectUser(String ticket) {
 
-        return null;
+        String key = "iit_"+ticket;
+
+
+        //从redis获取用户信息
+        return redisTemplate.opsForValue().get(key);
 
     }
 
@@ -54,41 +74,8 @@ public class UserServiceImpl implements UserService {
         user.setCreated(new Date());
         user.setUpdated(new Date());
 
-        //MD5加密
-        String password = user.getPassword();
-
-        password = DigestUtils.md5DigestAsHex(password.getBytes());
-
-        user.setPassword(password);
-
-
         int result = userMapper.insert(user);
         return  result;
 
-    }
-
-    @Override
-    public String login(User user) {
-
-        //MD5加密
-        String password = user.getPassword();
-
-        password = DigestUtils.md5DigestAsHex(password.getBytes());
-
-        user.setPassword(password);
-        List<User> list = userMapper.select(user);
-
-        if (list.size()>0){
-
-            //把key和用户信息存在redis中
-            User user1 = list.get(0);
-            String json = new Gson().toJson(user1);
-
-            String key = "itt02_"+UUID.randomUUID().toString();
-
-            redisTemplate.opsForValue().set(key,json);
-            return  key;
-        }
-        return  null;
     }
 }

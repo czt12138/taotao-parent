@@ -40,4 +40,8 @@ dependencies {
 
     //service需要调用mapper的方法，所以这里需要添加taotao-mapper的依赖
     compile project(':taotao-mapper')
+
+
+    compile project(':taotao-pojo')
+
 }

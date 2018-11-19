@@ -1,9 +1,6 @@
 package com.czt.service;
 
 import com.czt.pojo.User;
-import com.github.pagehelper.PageInfo;
-
-import java.util.List;
 
 /*
  *  @项目名：  taotao-parent 
@@ -15,19 +12,12 @@ import java.util.List;
  */
 public interface UserService {
 
-        void save();
-        /**
-         * 查询所有的用户
-         * @return
-         */
-        List<User> selectAll();
+     Boolean   check(String param,int type);
 
+     String selectUser(String ticket);
 
-        /**
-         * 对用户执行分页处理
-         * @param currentPage
-         * @param pageSize
-         * @return  pageInfo
-         */
-        PageInfo<User> findByPage(int currentPage , int pageSize);
+     //注册用户
+     int addUser(User user);
+
+     String login(User user);
 }

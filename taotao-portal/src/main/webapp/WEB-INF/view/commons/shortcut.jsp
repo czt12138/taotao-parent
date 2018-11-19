@@ -1,11 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+
 <div id="shortcut-2013">
 	<div class="w">
 		<ul class="fl lh">
 			<li class="fore1 ld" clstag="homepage|keycount|home2013|01a"><b></b><a href="javascript:addToFavorite()" rel="nofollow">收藏淘淘</a></li>
 		</ul>
 		<ul class="fr lh">
-			<li class="fore1" id="loginbar" clstag="homepage|keycount|home2013|01b">您好！欢迎来到淘淘！<a href="javascript:login()">[登录]</a>&nbsp;<a href="javascript:regist()">[免费注册]</a></li>
+
+			<li class="fore1" id="loginbar" clstag="homepage|keycount|home2013|01b">
+			<c:if test="true">
+				<font color="#ffe4c4">${user.username}</font>
+			</c:if>
+			<c:if test="false">
+				   您好！欢迎来到淘淘！
+					<a href="javascript:login()">[登录]</a>&nbsp;<a href="javascript:regist()">[免费注册]</a>
+			</c:if>
+			</li>
+
+
 			<li class="fore2 ld" clstag="homepage|keycount|home2013|01c">
 				<s></s>
 				<a href="http://jd2008.jd.com/JdHome/OrderList.aspx" rel="nofollow">我的订单</a>

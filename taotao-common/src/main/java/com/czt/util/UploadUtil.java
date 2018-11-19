@@ -6,10 +6,7 @@ public class UploadUtil {
 
 	/***
      * FastDFS图片上传工具类
-	 * @param trackerserver		
-	 * 				tracker服务端链接的socket链接IP和端口，格式 tracker_server=192.168.174.130:22122
-	 * 				这里的trackerserver是完整的文件，供客户端代码读取解析，文件格式如上
-	 * 
+	 * @param trackerserver
 	 * @param buffer	文件的字节数组
 	 * @param subfix	上传的文件后缀
 	 * @return
@@ -22,21 +19,14 @@ public class UploadUtil {
 			//创建一个Tracker客户端
 			TrackerClient tracker = new TrackerClient();
 			
-			//链接tracker服务
+			//连接tracker服务
 			TrackerServer trackerServer = tracker.getConnection();
 			
-			//通过链接tracker获得Storage信息并创建一个Storage服务端和客户端
+			//通过连接tracker获得Storage信息并创建一个Storage服务端和客户端
 			StorageServer storageServer = null;
 			StorageClient storageClient = new StorageClient(trackerServer, storageServer);
 
-			/***
-			 * 通过客户端想storage上传图片
-			 * buffer：文件的字节数组
-			 * subfix:文件的后缀
-			 * 上传响应信息
-			 * fileinfos[0]:文件存储的组名
-			 * fileinfos[1]:文件的其他存储区间名和文件名的组合
-			 */
+
 			String[] fileinfos= storageClient.upload_file(buffer, subfix, null);
 
 			return fileinfos;
@@ -49,10 +39,9 @@ public class UploadUtil {
 	
 	/***
 	 * @param trackerserver		
-	 * 				tracker服务端链接的socket链接IP和端口，格式 tracker_server=192.168.174.130:22122
-	 * 				这里的trackerserver是完整的文件，供客户端代码读取解析，文件格式如上
+	 *
 	 * @param trackerserver
-	 * @param vfile	需要上传的文件完整访问路径 如D:/123.jpg
+	 * @param vfile	上传的文件完整访问路径
 	 * @return
 	 */
 	public static String[] upload(String trackerserver, String vfile) {
@@ -70,14 +59,7 @@ public class UploadUtil {
 			StorageServer storageServer = null;
 			StorageClient storageClient = new StorageClient(trackerServer, storageServer);
 
-			/***
-			 * 通过客户端想storage上传图片
-			 * buffer：文件的字节数组
-			 * subfix:文件的后缀
-			 * 上传响应信息
-			 * fileinfos[0]:文件存储的组名
-			 * fileinfos[1]:文件的其他存储区间名和文件名的组合
-			 */
+
 			String[] fileinfos= storageClient.upload_file(vfile, null, null);
 
 			return fileinfos;

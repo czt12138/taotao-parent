@@ -9,4 +9,7 @@ include 'taotao-common'
 include 'taotao-portal'
 include 'taotao-sso-web'
 include 'taotao-sso-service'
+include 'taotao-search-web'
+include 'taotao-search-service'
+include 'taotao-search-interface'
 

@@ -16,6 +16,9 @@
             <option value="$PROJECT_DIR$/taotao-mapper" />
             <option value="$PROJECT_DIR$/taotao-pojo" />
             <option value="$PROJECT_DIR$/taotao-portal" />
+            <option value="$PROJECT_DIR$/taotao-search-interface" />
+            <option value="$PROJECT_DIR$/taotao-search-service" />
+            <option value="$PROJECT_DIR$/taotao-search-web" />
             <option value="$PROJECT_DIR$/taotao-service" />
             <option value="$PROJECT_DIR$/taotao-sso-service" />
             <option value="$PROJECT_DIR$/taotao-sso-web" />

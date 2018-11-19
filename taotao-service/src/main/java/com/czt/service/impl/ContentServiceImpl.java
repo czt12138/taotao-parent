@@ -21,6 +21,7 @@ import java.util.*;
  *  @创建者:   Administrator
  *  @创建时间:  2018/9/29 14:51
  *  @描述：    TODO
+ *
  */
 @Service
 public class ContentServiceImpl implements ContentService {
@@ -29,7 +30,7 @@ public class ContentServiceImpl implements ContentService {
     private ContentMapper contentMapper;
 
     @Autowired
-    private RedisTemplate<String ,String> redisTemplate;
+     private RedisTemplate<String ,String> redisTemplate;
 
     @Override
     public int add(Content content) {
@@ -37,20 +38,20 @@ public class ContentServiceImpl implements ContentService {
         content.setCreated(new Date());
         content.setUpdated(new Date());
 
-        int result  = contentMapper.insert(content);
+        int result = contentMapper.insert(content);
 
         //删除redis数据
-        ValueOperations<String, String> ops = redisTemplate.opsForValue();
-        ops.set("bigAD","");
+        //    ValueOperations<String, String> ops = redisTemplate.opsForValue();
+        //   ops.set("bigAD","");
 
-        return  result;
+        return result;
     }
 
     @Override
     public PageInfo<Content> list(long categoryId, int page, int rows) {
 
 
-        PageHelper.startPage(page , rows);
+        PageHelper.startPage(page, rows);
 
         Content content = new Content();
         content.setCategoryId(categoryId);
@@ -67,52 +68,53 @@ public class ContentServiceImpl implements ContentService {
         int result = contentMapper.updateByPrimaryKeySelective(content);
 
 
-
         //删除redis数据
-        ValueOperations<String, String> ops = redisTemplate.opsForValue();
-        ops.set("bigAD","");
-        return result;
+        //  ValueOperations<String, String> ops = redisTemplate.opsForValue();
+        //   ops.set("bigAD","");
+          return result;
     }
 
     @Override
     public int delete(String ids) {
 
 
-        int result = 0 ;
+        int result = 0;
         for (String id : ids.split(",")) {
             result += contentMapper.deleteByPrimaryKey(Long.parseLong(id));
         }
         //删除redis数据
-        ValueOperations<String, String> ops = redisTemplate.opsForValue();
-        ops.set("bigAD","");
+        //   ValueOperations<String, String> ops = redisTemplate.opsForValue();
+        //   ops.set("bigAD","");
 
 
-        return result ;
+        return result;
     }
 
-    //使用到redis缓存
+
+
+   // 使用到redis缓存
     @Override
     public String selectByCategoryId(long cid) {
 
 
-        ValueOperations<String, String> operations = redisTemplate.opsForValue();
+          ValueOperations<String, String> operations = redisTemplate.opsForValue();
 
-        String json = operations.get("bigAD");
+           String json = operations.get("bigAD");
 
-        System.out.println("缓存里的广告数据：" + json);
+            System.out.println("缓存里的广告数据：" + json);
 
-        if (!StringUtils.isEmpty(json)){
+            if (!StringUtils.isEmpty(json)){
 
-            System.out.println("缓存里有数据，直接返回");
-            return  json;
-        }
+               System.out.println("缓存里有数据，直接返回");
+                return  json;
+            }
 
-        System.out.println("缓存里没有数据，执行查询数据库的操作");
-         Content c = new Content();
+          System.out.println("缓存里没有数据，执行查询数据库的操作");
+             Content c = new Content();
 
-         c.setCategoryId(cid);
+            c.setCategoryId(cid);
 
-        List<Content> contents = contentMapper.select(c);
+           List<Content> contents = contentMapper.select(c);
 
         List<Map<String,Object>> list = new ArrayList<>();
 
@@ -127,10 +129,11 @@ public class ContentServiceImpl implements ContentService {
         }
 
          json = new Gson().toJson(list);
-         operations.set("bigAD",json);
+          operations.set("bigAD",json);
 
-        System.out.println("从数据库查询到的数据要存进redis里");
-        return json;
+           System.out.println("从数据库查询到的数据要存进redis里");
+           return json;
     }
+
 
 }
