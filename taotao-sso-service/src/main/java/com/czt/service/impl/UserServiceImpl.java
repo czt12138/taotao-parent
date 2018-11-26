@@ -4,11 +4,13 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.czt.mapper.UserMapper;
 import com.czt.pojo.User;
 import com.czt.service.UserService;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.util.DigestUtils;
 
-import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /*
  *  @项目名：  taotao-parent 
@@ -70,12 +72,32 @@ public class UserServiceImpl implements UserService {
     @Override
     public int addUser(User user) {
 
-
-        user.setCreated(new Date());
-        user.setUpdated(new Date());
-
-        int result = userMapper.insert(user);
-        return  result;
-
+       return  1;
     }
+
+    @Override
+    public String login(User user) {
+
+       //MD5加密
+        String password = user.getPassword();
+
+        password = DigestUtils.md5DigestAsHex(password.getBytes());
+
+        user.setPassword(password);
+        List<User> list = userMapper.select(user);
+
+        if (list.size()>0){
+
+            //把key和用户信息存在redis中
+            User user1 = list.get(0);
+            String json = new Gson().toJson(user1);
+
+            String key = "itt02_"+ UUID.randomUUID().toString();
+
+            redisTemplate.opsForValue().set(key,json);
+            return  key;
+        }
+        return  null;
+    }
+
 }

@@ -12,7 +12,7 @@
 			<c:if test="true">
 				<font color="#ffe4c4">${user.username}</font>
 			</c:if>
-			<c:if test="false">
+			<c:if test="${user == null}">
 				   您好！欢迎来到淘淘！
 					<a href="javascript:login()">[登录]</a>&nbsp;<a href="javascript:regist()">[免费注册]</a>
 			</c:if>

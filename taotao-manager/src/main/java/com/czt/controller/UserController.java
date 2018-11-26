@@ -1,12 +1,6 @@
 package com.czt.controller;
 
-import com.czt.pojo.User;
-import com.czt.service.UserService;
-import com.github.pagehelper.PageInfo;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /*
  *  @项目名：  taotao-parent 
@@ -20,7 +14,7 @@ import java.util.List;
 public class UserController {
 
 
-     // @Reference 注意： 这里使用的是dubbo的注解
+    /* // @Reference 注意： 这里使用的是dubbo的注解
       private UserService userService;
 
     @RequestMapping("save")
@@ -56,5 +50,5 @@ public class UserController {
         //直接返回对象，在页面上显示的是json字符串
         return page;
 
-    }
+    }*/
 }
