@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.DigestUtils;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,7 +23,7 @@ import java.util.UUID;
  */
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService{
 
     @Autowired
        private UserMapper userMapper;
@@ -36,16 +37,16 @@ public class UserServiceImpl implements UserService {
         User user = new User();
 
         switch (type){
-            case  1:
+            case  1: //校验用户名
                 user.setUsername(param);
                 break;
-            case 2:
+            case 2://校验电话
                 user.setPhone(param);
                 break;
-            case 3:
+            case 3://校验邮箱
                 user.setEmail(param);
                 break;
-            default:
+            default: //默认是校验用户名
                 user.setUsername(param);
                 break;
 
@@ -72,7 +73,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public int addUser(User user) {
 
-       return  1;
+        user.setCreated(new Date());
+        user.setUpdated(new Date());
+
+        //MD5加密
+        String password = user.getPassword();
+
+        password = DigestUtils.md5DigestAsHex(password.getBytes());
+
+        user.setPassword(password);
+
+
+        int result = userMapper.insert(user);
+        return  result;
     }
 
     @Override
@@ -86,18 +99,28 @@ public class UserServiceImpl implements UserService {
         user.setPassword(password);
         List<User> list = userMapper.select(user);
 
+        String key = null;
+
         if (list.size()>0){
 
             //把key和用户信息存在redis中
             User user1 = list.get(0);
             String json = new Gson().toJson(user1);
 
-            String key = "itt02_"+ UUID.randomUUID().toString();
+             key = "itt02_"+ UUID.randomUUID().toString();
 
             redisTemplate.opsForValue().set(key,json);
-            return  key;
+
         }
-        return  null;
+        return  key;
+    }
+
+    @Override
+    public User findUser(String ticket) {
+
+        String json = redisTemplate.opsForValue().get(ticket);
+
+        return new Gson().fromJson(json , User.class);
     }
 
 }

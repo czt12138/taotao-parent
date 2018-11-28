@@ -2,12 +2,10 @@ package com.czt.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.czt.service.UserService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /*
  *  @项目名：  taotao-parent 
@@ -21,44 +19,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 
-    @Reference
-    private UserService userService;
-
-    @RequestMapping("/check/{param}/{type}")
-    public ResponseEntity<String> check(@PathVariable String param, @PathVariable int type,String callback){
 
 
-        try {
+        @Reference
+        private UserService userService;
 
-            System.out.println("检测的用户名：" + param + ":" + type);
+        @RequestMapping("/check/{param}/{type}")
+        @ResponseBody
+        public String check(@PathVariable  String param ,@PathVariable int type , String callback){
 
-            Boolean b = userService.check(param, type);
-            String result = "";
+            Boolean flag = userService.check(param, type);
 
-            if(!StringUtils.isEmpty(callback)){
-                result =callback+"("+b+")";
-            }
-            else{
-                 result = b +"";
-            }
-            return  ResponseEntity.ok(result);
-        } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(flag ? "可以使用" : "不能使用");
 
+            String result = callback+"("+flag+")";
+
+            return result;
         }
-        return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+
+
+        @RequestMapping("/user/{ticket}")
+        @ResponseBody
+        public String ticket(@PathVariable String ticket){
+
+            System.out.println("根据ticket获取用户信息");
+
+            String json = userService.selectUser(ticket);
+            System.out.println("json=" + json);
+
+            return json;
+        }
+
     }
 
-    @RequestMapping("/{ticket}")
-    public ResponseEntity<String> selectUser(@PathVariable String ticket){
-
-        try {
-            String result = userService.selectUser(ticket);
-
-            return  ResponseEntity.ok(result);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return  ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
-    }
-}

@@ -52,6 +52,8 @@ public class ContentCategoryController {
     @ResponseBody
     public  String update(ContentCategory contentCategory){
 
+
+
         service.update(contentCategory);
 
         return  "success!!";

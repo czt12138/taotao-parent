@@ -36,6 +36,8 @@
       <module name="taotao-search-web_test" target="1.8" />
       <module name="taotao-service_main" target="1.8" />
       <module name="taotao-service_test" target="1.8" />
+      <module name="taotao-sso-interface_main" target="1.8" />
+      <module name="taotao-sso-interface_test" target="1.8" />
       <module name="taotao-sso-service_main" target="1.8" />
       <module name="taotao-sso-service_test" target="1.8" />
       <module name="taotao-sso-web_main" target="1.8" />

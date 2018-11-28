@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/taotao-search-service" />
             <option value="$PROJECT_DIR$/taotao-search-web" />
             <option value="$PROJECT_DIR$/taotao-service" />
+            <option value="$PROJECT_DIR$/taotao-sso-interface" />
             <option value="$PROJECT_DIR$/taotao-sso-service" />
             <option value="$PROJECT_DIR$/taotao-sso-web" />
           </set>

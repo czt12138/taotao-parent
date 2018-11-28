@@ -36,12 +36,11 @@ dependencies {
 
 
     //这是service的实现，它需要依赖interface，因为里面定义了service的接口
-    compile project(':taotao-interface')
+    compile project(':taotao-sso-interface')
 
     //service需要调用mapper的方法，所以这里需要添加taotao-mapper的依赖
     compile project(':taotao-mapper')
 
 
-    compile project(':taotao-pojo')
 
 }

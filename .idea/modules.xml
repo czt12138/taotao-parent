@@ -36,6 +36,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-service.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-service.iml" group="taotao-service" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-service/taotao-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-service/taotao-service_main.iml" group="taotao-service" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-service/taotao-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-service/taotao-service_test.iml" group="taotao-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-sso-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-sso-interface.iml" group="taotao-sso-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-sso-interface/taotao-sso-interface_main.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-sso-interface/taotao-sso-interface_main.iml" group="taotao-sso-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-sso-interface/taotao-sso-interface_test.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-sso-interface/taotao-sso-interface_test.iml" group="taotao-sso-interface" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-sso-service.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-sso-service.iml" group="taotao-sso-service" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-sso-service/taotao-sso-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-sso-service/taotao-sso-service_main.iml" group="taotao-sso-service" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-sso-service/taotao-sso-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-sso-service/taotao-sso-service_test.iml" group="taotao-sso-service" />

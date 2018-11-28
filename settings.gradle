@@ -12,4 +12,5 @@ include 'taotao-sso-service'
 include 'taotao-search-web'
 include 'taotao-search-service'
 include 'taotao-search-interface'
+include 'taotao-sso-interface'
 

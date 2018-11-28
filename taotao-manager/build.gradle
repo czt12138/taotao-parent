@@ -40,4 +40,8 @@ dependencies {
     //taotao-manager这个项目依赖了taotao-common这个项目
     compile project(':taotao-common')
 
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-solr
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-solr', version: '1.5.10.RELEASE'
+
+
 }

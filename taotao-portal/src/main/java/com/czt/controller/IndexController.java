@@ -3,9 +3,7 @@ package com.czt.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.czt.pojo.User;
 import com.czt.service.ContentService;
-import com.google.gson.Gson;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
+import com.czt.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,8 +26,8 @@ public class IndexController {
     @Reference
     private ContentService contentService;
 
-    @Autowired
-    private RedisTemplate<String,String> redisTemplate;
+    @Reference
+    private UserService userService;
 
     @RequestMapping("/page/{pageName}")
     public String page(@PathVariable String pageName){
@@ -51,8 +49,8 @@ public class IndexController {
                System.out.println("name:" + name);
                if ("ticket".equals(name)){
                    String key = cookie.getValue();
-                   String userinfo = redisTemplate.opsForValue().get(key);
-                   User user = new Gson().fromJson(userinfo, User.class);
+
+                   User user = userService.findUser(key);
 
                    model.addAttribute("user",user);
                    break;

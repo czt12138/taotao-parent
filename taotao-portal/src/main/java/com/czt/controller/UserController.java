@@ -69,10 +69,8 @@ public class UserController {
 
             //登录成功跳转页面
             map.put("success","http://www.taotao.com");
-            return  map;
-        }
 
-        map.put("status","500");
+        }
 
         return  map;
     }

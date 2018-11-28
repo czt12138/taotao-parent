@@ -58,7 +58,7 @@ public class ItemController {
         map.put("total",pageInfo.getTotal());
         map.put("rows",pageInfo.getList());
 
-        return map ;
+        return map;
     }
 
     @RequestMapping(value = "/rest/item/desc/item_id",method = RequestMethod.POST)
@@ -74,7 +74,7 @@ public class ItemController {
 
     @RequestMapping(value = "/rest/item/cat/id",method = RequestMethod.POST)
     @ResponseBody
-    public String show_cat(int id){
+    public String show_cat(Long id){
 
         int result = itemService.show_cat(id);
         System.out.println("result=" + result);
