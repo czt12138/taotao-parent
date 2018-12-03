@@ -9,6 +9,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-interface.iml" group="taotao-interface" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-interface/taotao-interface_main.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-interface/taotao-interface_main.iml" group="taotao-interface" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-interface/taotao-interface_test.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-interface/taotao-interface_test.iml" group="taotao-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-item-web.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-item-web.iml" group="taotao-item-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-item-web/taotao-item-web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-item-web/taotao-item-web_main.iml" group="taotao-item-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-item-web/taotao-item-web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-item-web/taotao-item-web_test.iml" group="taotao-item-web" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-manager.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-manager.iml" group="taotao-manager" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-manager/taotao-manager_main.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-manager/taotao-manager_main.iml" group="taotao-manager" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/taotao-manager/taotao-manager_test.iml" filepath="$PROJECT_DIR$/.idea/modules/taotao-manager/taotao-manager_test.iml" group="taotao-manager" />

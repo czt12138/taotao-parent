@@ -14,4 +14,6 @@ import com.czt.pojo.Page;
 public interface SearchService {
 
    Page<Item> search(String q, int page, int pageSize);
+
+   void addItem(String message);
 }

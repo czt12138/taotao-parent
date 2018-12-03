@@ -18,6 +18,8 @@
       <module name="taotao-common_test" target="1.8" />
       <module name="taotao-interface_main" target="1.8" />
       <module name="taotao-interface_test" target="1.8" />
+      <module name="taotao-item-web_main" target="1.8" />
+      <module name="taotao-item-web_test" target="1.8" />
       <module name="taotao-manager_main" target="1.8" />
       <module name="taotao-manager_test" target="1.8" />
       <module name="taotao-mapper_main" target="1.8" />

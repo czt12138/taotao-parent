@@ -25,5 +25,7 @@ public interface ItemService {
 
     int deleteItem(String  ids);
 
+    Item findItemById(long id);
+
 
 }

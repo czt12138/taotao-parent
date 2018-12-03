@@ -9,6 +9,7 @@ import com.czt.service.ItemService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsMessagingTemplate;
 
 import java.util.Date;
 import java.util.List;
@@ -29,6 +30,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private ItemDescMapper itemDescMapper;
+
+    @Autowired
+    private JmsMessagingTemplate template;
 
     @Override
     public int addItem(Item item, String desc) {
@@ -54,6 +58,10 @@ public class ItemServiceImpl implements ItemService {
         itemDesc.setUpdated(new Date());
 
         itemDescMapper.insertSelective(itemDesc);
+
+
+        //添加完商品，需要发送出来消息，然后让搜索系统去更新索引库。
+        template.convertAndSend("item-save" , id);
 
         return  result;
     }
@@ -119,6 +127,11 @@ public class ItemServiceImpl implements ItemService {
 
     }
 
+   @Override
+    public Item findItemById(long id) {
+
+        return itemMapper.selectByPrimaryKey(id);
+    }
 
 
 
