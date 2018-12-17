@@ -1,8 +1,10 @@
 package com.czt.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.czt.cart.CartMergeService;
 import com.czt.pojo.User;
 import com.czt.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +23,7 @@ import java.util.Map;
  *  @文件名:   UserController
  *  @创建者:   Czt
  *  @创建时间:  2018/11/12 14:59
- *  @描述：    TODO
+ *  @描述：    用户登录注册
  */
 @Controller
 @RequestMapping("/user")
@@ -28,6 +31,9 @@ public class UserController {
 
     @Reference
     private UserService userService;
+
+    @Autowired
+    private CartMergeService cartMergeService;
 
     @RequestMapping("/doRegister.shtml")
     @ResponseBody
@@ -52,7 +58,7 @@ public class UserController {
 
     @PostMapping("/doLogin.shtml")
     @ResponseBody
-    public Map<String,String> login(User user, HttpServletResponse response){
+    public Map<String,String> login(User user, HttpServletResponse response, HttpServletRequest request){
 
         Map<String,String>  map = new HashMap<>();
 
@@ -69,6 +75,9 @@ public class UserController {
 
             //登录成功跳转页面
             map.put("success","http://www.taotao.com");
+
+            //合并购物车信息
+            cartMergeService.mergeCart(ticket,request,response);
 
         }
 

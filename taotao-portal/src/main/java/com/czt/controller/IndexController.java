@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  *  @文件名:   IndexController
  *  @创建者:   Administrator
  *  @创建时间:  2018/9/27 15:44
- *  @描述：    TODO
+ *  @描述：    显示首页
  */
 @Controller
 public class IndexController {
@@ -29,8 +29,16 @@ public class IndexController {
     @Reference
     private UserService userService;
 
+    /**
+     * 通用跳转方法
+     * @param pageName
+     * @return
+     */
     @RequestMapping("/page/{pageName}")
-    public String page(@PathVariable String pageName){
+    public String page(@PathVariable String pageName,Model model,String redirect){
+
+        //把跳转的参数uri存进model中去
+        model.addAttribute("redirect",redirect);
         return  pageName;
 
     }

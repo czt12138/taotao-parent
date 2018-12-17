@@ -40,9 +40,7 @@ public class ContentServiceImpl implements ContentService {
 
         int result = contentMapper.insert(content);
 
-        //删除redis数据
-        //    ValueOperations<String, String> ops = redisTemplate.opsForValue();
-        //   ops.set("bigAD","");
+
 
         return result;
     }
@@ -68,9 +66,7 @@ public class ContentServiceImpl implements ContentService {
         int result = contentMapper.updateByPrimaryKeySelective(content);
 
 
-        //删除redis数据
-        //  ValueOperations<String, String> ops = redisTemplate.opsForValue();
-        //   ops.set("bigAD","");
+
           return result;
     }
 

@@ -30,12 +30,20 @@ dependencies {
 //dubbo 消息中间件
     compile group: 'io.dubbo.springboot',name: 'spring-boot-starter-dubbo',version:'1.0.0'
 
+    //数据库依赖
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.17'
 
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
 
     compile group: 'com.google.code.gson', name: 'gson', version: '2.8.0'
 
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '1.5.10.RELEASE'
+
+
     compile project(':taotao-sso-interface')
 
     compile project(':taotao-interface')
+
+    compile project(':taotao-cart-interface')
 }

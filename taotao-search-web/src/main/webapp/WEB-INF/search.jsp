@@ -31,7 +31,7 @@
 		<li class="item-book" bookid="11078102">
 			<div class="p-img">
 				<a target="_blank" href="http://item.taotao.com/item/${item.id }.html">
-					<img width="160" height="160" data-img="1" data-lazyload="${item.image}" />
+					<img width="160" height="160" data-img="1" data-lazyload="${item.images[0]}" />
 				</a>
 			</div>
 			<div class="p-name">
