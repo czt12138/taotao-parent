@@ -56,6 +56,7 @@ public class FreeMarkerService {
 
         root.put("item",item);
         root.put("itemDesc",itemdesc);
+
         //静态页面存放的位置
         Writer out = new FileWriter("E:/taotao/item/"+message+".html");
         //输出页面

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  *  @文件名:   PageController
  *  @创建者:   Czt
  *  @创建时间:  2018/11/26 9:52
- *  @描述：    TODO
+ *  @描述：    查询索引库数据并显示
  */
 @Controller
 public class SearchController {

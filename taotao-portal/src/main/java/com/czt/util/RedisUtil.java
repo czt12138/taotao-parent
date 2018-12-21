@@ -11,7 +11,7 @@ import org.springframework.util.StringUtils;
  *  @文件名:   RedisUtil
  *  @创建者:   Czt
  *  @创建时间:  2018/12/8 20:40
- *  @描述：    TODO
+ *  @描述：    redis
  */
 public class RedisUtil {
 
@@ -28,5 +28,11 @@ public class RedisUtil {
 
        return  user;
 
+   }
+
+   public static String getOrderId(RedisTemplate<String,String> template,String key){
+
+
+       return  template.opsForValue().increment(key,1)+"";
    }
 }

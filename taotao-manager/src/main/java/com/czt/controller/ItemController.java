@@ -16,17 +16,23 @@ import java.util.Map;
  *  @项目名：  taotao-parent 
  *  @包名：    com.czt.controller
  *  @文件名:   ItemController
- *  @创建者:   Administrator
+ *  @创建者:   czt
  *  @创建时间:  2018/9/26 10:01
  *  @描述：    商品处理控制器
  */
 
-@Controller
+@Controller //视图解析器可以解析视图，从而跳转页面
 public class ItemController {
 
     @Reference
     private ItemService itemService;
 
+    /**
+     * 添加商品
+     * @param item
+     * @param desc
+     * @return
+     */
     //添加商品Item对象要添加到item表里
     //商品的描述，使用desc来接受，然后要添加到item_desc表里
          @RequestMapping(value = "/rest/item", method = RequestMethod.POST)
@@ -37,12 +43,17 @@ public class ItemController {
 
              System.out.println("result=" + result);
 
-             return  "success!!";
+             return  "success";
 
          }
 
 
-
+    /**
+     * 查询所有商品
+     * @param page
+     * @param rows
+     * @return
+     */
     @RequestMapping(value = "/rest/item", method = RequestMethod.GET)
     @ResponseBody
          public  Map<String, Object> list(int page,int rows) {
@@ -61,6 +72,11 @@ public class ItemController {
         return map;
     }
 
+    /**
+     * 显示描述信息
+     * @param item_id
+     * @return
+     */
     @RequestMapping(value = "/rest/item/desc/item_id",method = RequestMethod.POST)
     @ResponseBody
     public String show_desc(long item_id){

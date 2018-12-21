@@ -9,7 +9,7 @@ import com.czt.pojo.Page;
  *  @文件名:   SearchService
  *  @创建者:   Czt
  *  @创建时间:  2018/11/26 14:22
- *  @描述：    TODO
+ *  @描述：    搜索接口类
  */
 public interface SearchService {
 

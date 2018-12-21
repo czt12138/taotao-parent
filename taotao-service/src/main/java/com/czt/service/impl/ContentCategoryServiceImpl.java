@@ -14,9 +14,9 @@ import java.util.List;
  *  @项目名：  taotao-parent 
  *  @包名：    com.czt.service.impl
  *  @文件名:   ContentCategoryServiceImpl
- *  @创建者:   Administrator
+ *  @创建者:   Czt
  *  @创建时间:  2018/9/28 8:52
- *  @描述：    TODO
+ *  @描述：    内容分类实现类
  */
 @Service
 public class ContentCategoryServiceImpl implements ContentCategoryService {
@@ -89,10 +89,11 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
         List<ContentCategory> list = new ArrayList<>();
 
         //根据当前删除的节点id，找到所有孩子
+
         //先存当前本来应删除的分类
         list.add(contentCategory);
 
-        //查询它的子级分类
+        //通过id查询它的子级分类
         findAllChild(list,contentCategory.getId());
 
         //再去删除,list集合已完全装好

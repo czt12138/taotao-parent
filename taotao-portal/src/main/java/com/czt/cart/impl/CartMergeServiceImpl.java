@@ -52,7 +52,7 @@ public class CartMergeServiceImpl implements CartMergeService {
 
             //判断redis是否有这件商品
             if(redislist.contains(cart)){
-                int index = redislist.indexOf(cart);
+                int index = redislist.indexOf(cart); //
                 Cart c = redislist.get(index);
                 c.setNum(cart.getNum()+c.getNum());
                 c.setUpdate(new Date());

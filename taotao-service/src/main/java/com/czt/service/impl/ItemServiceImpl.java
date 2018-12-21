@@ -18,9 +18,9 @@ import java.util.List;
  *  @项目名：  taotao-parent 
  *  @包名：    com.czt.service.impl
  *  @文件名:   ItemServiceImpl
- *  @创建者:   Administrator
+ *  @创建者:   czt
  *  @创建时间:  2018/9/26 10:08
- *  @描述：    TODO
+ *  @描述：    商品处理实现类
  */
 @Service
 public class ItemServiceImpl implements ItemService {
@@ -58,7 +58,6 @@ public class ItemServiceImpl implements ItemService {
         itemDesc.setUpdated(new Date());
 
         itemDescMapper.insertSelective(itemDesc);
-
 
         //添加完商品，需要发送出来消息，然后让搜索系统去更新索引库。
         template.convertAndSend("item-save" , id);

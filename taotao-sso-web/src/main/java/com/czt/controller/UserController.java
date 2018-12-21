@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  *  @文件名:   UserController
  *  @创建者:   Czt
  *  @创建时间:  2018/11/11 21:12
- *  @描述：    TODO
+ *  @描述：    注册时检验字段
  */
 @Controller
 @RequestMapping("/user")

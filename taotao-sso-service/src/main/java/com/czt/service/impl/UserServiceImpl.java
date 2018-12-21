@@ -19,7 +19,7 @@ import java.util.UUID;
  *  @文件名:   UserServiceImpl
  *  @创建者:   Czt
  *  @创建时间:  2018/11/11 21:20
- *  @描述：    TODO
+ *  @描述：    用户实现类
  */
 
 @Service

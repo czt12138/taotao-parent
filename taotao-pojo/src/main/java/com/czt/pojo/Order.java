@@ -12,21 +12,19 @@
 
 package com.czt.pojo;
 
+import javax.persistence.*;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
 
 /**
  * TB_ORDER
- * 
+ *
  * @author bianj
  * @version 1.0.0 2017-12-24
  */
 @Entity
 @Table(name = "TB_ORDER")
-public class Order implements java.io.Serializable {
+public class Order implements java.io.Serializable{
     /** 版本号 */
     private static final long serialVersionUID = 2730461580580006510L;
 
@@ -99,9 +97,39 @@ public class Order implements java.io.Serializable {
     @Column(name = "BUYER_RATE", nullable = true, length = 10)
     private Integer buyerRate;
 
+
+    @Transient //不要处理这两个字段，形成这种表的字段映射
+    List<OrderItem> orderItems;
+
+    @Transient
+    OrderShipping orderShipping;
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
+    public OrderShipping getOrderShipping() {
+        return orderShipping;
+    }
+
+    public void setOrderShipping(OrderShipping orderShipping) {
+        this.orderShipping = orderShipping;
+    }
+
+
+
+
+
+
+
+
     /**
      * 获取订单id
-     * 
+     *
      * @return 订单id
      */
     public String getOrderId() {
@@ -110,7 +138,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置订单id
-     * 
+     *
      * @param orderId
      *          订单id
      */
@@ -120,7 +148,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取实付金额。精确到2位小数;单位:元。如:200.07，表示:200元7分
-     * 
+     *
      * @return 实付金额。精确到2位小数;单位:元。如:200.07
      */
     public String getPayment() {
@@ -129,7 +157,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置实付金额。精确到2位小数;单位:元。如:200.07，表示:200元7分
-     * 
+     *
      * @param payment
      *          实付金额。精确到2位小数;单位:元。如:200.07
      */
@@ -139,7 +167,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取支付类型，1、在线支付，2、货到付款
-     * 
+     *
      * @return 支付类型
      */
     public Integer getPaymentType() {
@@ -148,7 +176,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置支付类型，1、在线支付，2、货到付款
-     * 
+     *
      * @param paymentType
      *          支付类型
      */
@@ -158,7 +186,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取邮费。精确到2位小数;单位:元。如:200.07，表示:200元7分
-     * 
+     *
      * @return 邮费。精确到2位小数;单位:元。如:200.07
      */
     public String getPostFee() {
@@ -167,7 +195,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置邮费。精确到2位小数;单位:元。如:200.07，表示:200元7分
-     * 
+     *
      * @param postFee
      *          邮费。精确到2位小数;单位:元。如:200.07
      */
@@ -177,7 +205,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取状态：1、未付款，2、已付款，3、未发货，4、已发货，5、交易成功，6、交易关闭
-     * 
+     *
      * @return 状态：1、未付款
      */
     public Integer getStatus() {
@@ -186,7 +214,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置状态：1、未付款，2、已付款，3、未发货，4、已发货，5、交易成功，6、交易关闭
-     * 
+     *
      * @param status
      *          状态：1、未付款
      */
@@ -196,7 +224,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取订单创建时间
-     * 
+     *
      * @return 订单创建时间
      */
     public Date getCreateTime() {
@@ -205,7 +233,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置订单创建时间
-     * 
+     *
      * @param createTime
      *          订单创建时间
      */
@@ -215,7 +243,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取订单更新时间
-     * 
+     *
      * @return 订单更新时间
      */
     public Date getUpdateTime() {
@@ -224,7 +252,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置订单更新时间
-     * 
+     *
      * @param updateTime
      *          订单更新时间
      */
@@ -234,7 +262,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取付款时间
-     * 
+     *
      * @return 付款时间
      */
     public Date getPaymentTime() {
@@ -243,7 +271,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置付款时间
-     * 
+     *
      * @param paymentTime
      *          付款时间
      */
@@ -253,7 +281,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取发货时间
-     * 
+     *
      * @return 发货时间
      */
     public Date getConsignTime() {
@@ -262,7 +290,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置发货时间
-     * 
+     *
      * @param consignTime
      *          发货时间
      */
@@ -272,7 +300,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取交易完成时间
-     * 
+     *
      * @return 交易完成时间
      */
     public Date getEndTime() {
@@ -281,7 +309,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置交易完成时间
-     * 
+     *
      * @param endTime
      *          交易完成时间
      */
@@ -291,7 +319,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取交易关闭时间
-     * 
+     *
      * @return 交易关闭时间
      */
     public Date getCloseTime() {
@@ -300,7 +328,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置交易关闭时间
-     * 
+     *
      * @param closeTime
      *          交易关闭时间
      */
@@ -310,7 +338,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取物流名称
-     * 
+     *
      * @return 物流名称
      */
     public String getShippingName() {
@@ -319,7 +347,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置物流名称
-     * 
+     *
      * @param shippingName
      *          物流名称
      */
@@ -329,7 +357,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取物流单号
-     * 
+     *
      * @return 物流单号
      */
     public String getShippingCode() {
@@ -338,7 +366,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置物流单号
-     * 
+     *
      * @param shippingCode
      *          物流单号
      */
@@ -348,7 +376,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取用户id
-     * 
+     *
      * @return 用户id
      */
     public Long getUserId() {
@@ -357,7 +385,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置用户id
-     * 
+     *
      * @param userId
      *          用户id
      */
@@ -367,7 +395,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取买家留言
-     * 
+     *
      * @return 买家留言
      */
     public String getBuyerMessage() {
@@ -376,7 +404,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置买家留言
-     * 
+     *
      * @param buyerMessage
      *          买家留言
      */
@@ -386,7 +414,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取买家昵称
-     * 
+     *
      * @return 买家昵称
      */
     public String getBuyerNick() {
@@ -395,7 +423,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置买家昵称
-     * 
+     *
      * @param buyerNick
      *          买家昵称
      */
@@ -405,7 +433,7 @@ public class Order implements java.io.Serializable {
 
     /**
      * 获取买家是否已经评价
-     * 
+     *
      * @return 买家是否已经评价
      */
     public Integer getBuyerRate() {
@@ -414,11 +442,36 @@ public class Order implements java.io.Serializable {
 
     /**
      * 设置买家是否已经评价
-     * 
+     *
      * @param buyerRate
      *          买家是否已经评价
      */
     public void setBuyerRate(Integer buyerRate) {
         this.buyerRate = buyerRate;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId='" + orderId + '\'' +
+                ", payment='" + payment + '\'' +
+                ", paymentType=" + paymentType +
+                ", postFee='" + postFee + '\'' +
+                ", status=" + status +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", paymentTime=" + paymentTime +
+                ", consignTime=" + consignTime +
+                ", endTime=" + endTime +
+                ", closeTime=" + closeTime +
+                ", shippingName='" + shippingName + '\'' +
+                ", shippingCode='" + shippingCode + '\'' +
+                ", userId=" + userId +
+                ", buyerMessage='" + buyerMessage + '\'' +
+                ", buyerNick='" + buyerNick + '\'' +
+                ", buyerRate=" + buyerRate +
+                ", orderItems=" + orderItems +
+                ", orderShipping=" + orderShipping +
+                '}';
     }
 }

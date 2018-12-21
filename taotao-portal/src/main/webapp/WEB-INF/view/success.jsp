@@ -23,7 +23,7 @@
    <script type="text/javascript" src="/js/taotao.js" charset="utf-8"></script>
 </head> <body id="mainframe">
 <!--shortcut start-->
-<jsp:include page="../commons/shortcut.jsp" />
+<jsp:include page="commons/shortcut.jsp" />
 <!--shortcut end-->
 <div class="w" id="headers">
 		<div id="logo"><a href="http://www.jd.com/"><img alt="淘淘商城" src="/images/taotao-logo.gif"></a></div>
@@ -60,7 +60,7 @@
 </div>
   <div class="w">
 	<!-- links start -->
-    <jsp:include page="../commons/footer-links.jsp"></jsp:include>
+    <jsp:include page="commons/footer-links.jsp"></jsp:include>
     <!-- links end -->
 </div><!-- footer end -->
      </body> 

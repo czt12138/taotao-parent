@@ -74,6 +74,8 @@ public class UploadUtil {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+
+		// System.getProperty("user.dir") 获取当前类的工作路径
 		String path = System.getProperty("user.dir")+"/src/main/resources/";
 		System.out.println(path);
 		

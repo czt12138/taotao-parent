@@ -18,9 +18,9 @@ import java.util.*;
  *  @项目名：  taotao-parent 
  *  @包名：    com.czt.service.impl
  *  @文件名:   ContentServiceImpl
- *  @创建者:   Administrator
+ *  @创建者:   Czt
  *  @创建时间:  2018/9/29 14:51
- *  @描述：    TODO
+ *  @描述：    内容管理实现类
  *
  */
 @Service
@@ -78,17 +78,17 @@ public class ContentServiceImpl implements ContentService {
         for (String id : ids.split(",")) {
             result += contentMapper.deleteByPrimaryKey(Long.parseLong(id));
         }
-        //删除redis数据
-        //   ValueOperations<String, String> ops = redisTemplate.opsForValue();
-        //   ops.set("bigAD","");
 
 
         return result;
     }
 
 
-
-   // 使用到redis缓存
+    /**
+     * 先从redis查询图片数据，没有则去数据库查询图片并存进redis中
+     * @param cid
+     * @return
+     */
     @Override
     public String selectByCategoryId(long cid) {
 
@@ -106,7 +106,7 @@ public class ContentServiceImpl implements ContentService {
             }
 
           System.out.println("缓存里没有数据，执行查询数据库的操作");
-             Content c = new Content();
+          Content c = new Content();
 
             c.setCategoryId(cid);
 
@@ -124,7 +124,7 @@ public class ContentServiceImpl implements ContentService {
             list.add(map);
         }
 
-         json = new Gson().toJson(list);
+          json = new Gson().toJson(list);
           operations.set("bigAD",json);
 
            System.out.println("从数据库查询到的数据要存进redis里");

@@ -23,7 +23,7 @@ import java.util.Map;
  *  @文件名:   UserController
  *  @创建者:   Czt
  *  @创建时间:  2018/11/12 14:59
- *  @描述：    用户登录注册
+ *  @描述：    用户登录注册，合并购物车
  */
 @Controller
 @RequestMapping("/user")

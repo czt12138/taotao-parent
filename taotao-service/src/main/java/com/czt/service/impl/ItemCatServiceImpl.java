@@ -12,9 +12,9 @@ import java.util.List;
  *  @项目名：  taotao-parent 
  *  @包名：    com.czt.service.impl
  *  @文件名:   ItemCatServiceImpl
- *  @创建者:   Administrator
+ *  @创建者:   czt
  *  @创建时间:  2018/9/25 10:19
- *  @描述：    TODO
+ *  @描述：    商品分类实现类
  */
 @Service
 public class ItemCatServiceImpl implements ItemCatService {

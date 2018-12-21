@@ -40,10 +40,13 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '1.5.10.RELEASE'
 
+// https://mvnrepository.com/artifact/joda-time/joda-time
+    compile group: 'joda-time', name: 'joda-time', version: '2.9.9'
 
     compile project(':taotao-sso-interface')
 
     compile project(':taotao-interface')
 
+    compile project(':taotao-order-interface')
     compile project(':taotao-cart-interface')
 }

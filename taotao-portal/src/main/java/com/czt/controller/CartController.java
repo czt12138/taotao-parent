@@ -30,7 +30,7 @@ import java.util.List;
 @Controller
 public class CartController {
 
-    @Reference
+     @Reference
      private CartService cartService;
 
     @Autowired
@@ -43,7 +43,7 @@ public class CartController {
     @RequestMapping("/cart/add/{id}.html")
     public  String addToCart(@PathVariable  long id, int num, HttpServletRequest request, HttpServletResponse response){
 
-        //从cookie取出redis中的key,通过key查询用户数据，获取用户id
+        //从cookie取出ticket
         String ticket = CookieUtil.findTicket(request);
         //有用户已经登录
         if (ticket != null){
@@ -84,6 +84,13 @@ public class CartController {
          return "cart";
       }
 
+    /**
+     * 修改购物车
+     * @param id
+     * @param num
+     * @param request
+     * @param response
+     */
       //由于有注解@controller,不管有无返回值，都会默认要跳转
      //有返回值就跳转具体页面，否则就跳转默认的根路径 “/”
       @RequestMapping("/service/cart/update/num/{id}/{num}")
