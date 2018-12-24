@@ -10,7 +10,7 @@
 
 			<li class="fore1" id="loginbar" clstag="homepage|keycount|home2013|01b">
 			<c:if test="true">
-				<font color="#ffe4c4">${user.username}</font>
+				欢迎您，<font color="aqua">${user.username}</font>
 			</c:if>
 			<c:if test="${user == null}">
 				   您好！欢迎来到淘淘！

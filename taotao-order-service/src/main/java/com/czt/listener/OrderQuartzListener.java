@@ -2,7 +2,6 @@ package com.czt.listener;
 
 import com.czt.quartz.OrderScheduler;
 import org.quartz.SchedulerException;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.ContextLoaderListener;
 
 import javax.annotation.Resource;
@@ -16,7 +15,7 @@ import javax.servlet.ServletContextEvent;
  *  @创建时间:  2018/12/20 14:09
  *  @描述：    TODO
  */
-@Component
+//@Component
 public class OrderQuartzListener extends ContextLoaderListener{
 
     @Resource(name="os")

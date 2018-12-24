@@ -3,7 +3,6 @@ package com.czt.quartz;
 import com.czt.service.OrderService;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
 /*
@@ -24,11 +23,11 @@ public class OrderJob extends QuartzJobBean{
 
         System.out.println("开始清除无效的订单了！！！");
 
-        ApplicationContext context2 = (ApplicationContext) context.getJobDetail().getJobDataMap().get("applicationContext");
+       // ApplicationContext context2 = (ApplicationContext) context.getJobDetail().getJobDataMap().get("applicationContext");
 
-        System.out.println("容器为：" + context2);
+       // System.out.println("容器为：" + context2);
 
-       OrderService orderService = context2.getBean(OrderService.class);
+       OrderService orderService = (OrderService) context.getJobDetail().getJobDataMap().get("orderService");
 
        orderService.clearOrder();
 

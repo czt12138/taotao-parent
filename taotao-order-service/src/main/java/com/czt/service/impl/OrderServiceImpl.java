@@ -88,7 +88,7 @@ public class OrderServiceImpl implements OrderService {
 
 
         System.out.println("现在去清除无效的订单了！！");
-       Example example = new Example(Order.class);
+        Example example = new Example(Order.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("status",1);
         criteria.andEqualTo("paymentType",1);

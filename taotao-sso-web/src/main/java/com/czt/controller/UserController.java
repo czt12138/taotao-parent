@@ -42,7 +42,7 @@ public class UserController {
         @ResponseBody
         public String ticket(@PathVariable String ticket){
 
-            System.out.println("根据ticket获取用户信息");
+            System.out.println("根据ticket获取用户信息:"+ticket);
 
             String json = userService.selectUser(ticket);
             System.out.println("json=" + json);

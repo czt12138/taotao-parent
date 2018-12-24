@@ -1,5 +1,6 @@
 package com.czt.quartz;
 
+import com.czt.service.OrderService;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +20,14 @@ import org.springframework.stereotype.Component;
 public class OrderQuartz {
 
     @Autowired
-    private ApplicationContext context;
+    private OrderService orderService;
 
     @Bean
     public JobDetail orderJob(){
 
 
         JobDataMap map = new JobDataMap();
-        map.put("applicationContext",context);
+        map.put("orderService",orderService);
 
         return  JobBuilder
                   .newJob(OrderJob.class)
