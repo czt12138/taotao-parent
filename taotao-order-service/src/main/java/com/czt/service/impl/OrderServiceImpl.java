@@ -10,6 +10,7 @@ import com.czt.pojo.OrderShipping;
 import com.czt.service.OrderService;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
@@ -33,6 +34,9 @@ public class OrderServiceImpl implements OrderService {
     private OrderItemMapper orderItemMapper;
     @Autowired
     private OrderShippingMapper orderShippingMapper;
+
+    @Autowired
+    private RedisTemplate<String,String> template;
 
     @Override
     public void addOrder(Order order, String orderId) {
@@ -83,6 +87,29 @@ public class OrderServiceImpl implements OrderService {
 
     }
 
+   /* @Override
+    public void clearCart(Long userId,long itemId) {
+
+         String json = template.opsForValue().get("iit_"+userId);
+        //把json字符串转化为list集合
+        List<Cart> list = new Gson().fromJson(json, new TypeToken<List<Cart>>() {
+        }.getType());
+
+        for (Cart cart : list) {
+            if(itemId == cart.getItemId()){
+
+                list.remove(cart);
+                break;
+            }
+            list.remove(cart);
+
+        }
+        json = new Gson().toJson(list);
+        template.opsForValue().set("iit_" + userId,json);
+
+    }*/
+
+
     @Override
     public void clearOrder() {
 
@@ -92,12 +119,12 @@ public class OrderServiceImpl implements OrderService {
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("status",1);
         criteria.andEqualTo("paymentType",1);
-        criteria.andEqualTo("createTime",new DateTime().minusDays(2).toDate());
+        criteria.andLessThanOrEqualTo("createTime",new DateTime().minusDays(2).toDate());
 
         Order order = new Order();
         order.setStatus(6);
         order.setCloseTime(new Date());
-        System.out.println("订单信息："+order);
+
         orderMapper.updateByExampleSelective(order,example);
     }
 }

@@ -56,7 +56,7 @@ public class OrderController {
 
     @RequestMapping("/service/order/submit")
     @ResponseBody
-    public Map<String, String> addOrder(Order order, HttpServletRequest request){
+    public Map<String, String> addOrder(Order order,  HttpServletRequest request){
 
         String ticket = CookieUtil.findTicket(request);
 
@@ -85,7 +85,7 @@ public class OrderController {
 
         model.addAttribute("order",order);
 
-        // 获取当前时间的两天后，即时送达时间
+        // 设置送达时间
         String date = new DateTime().plusDays(2).toString("yyyy年MM月dd日HH时mm分ss秒SSS毫秒");
         model.addAttribute("date",date);
 
