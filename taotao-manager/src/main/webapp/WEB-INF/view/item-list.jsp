@@ -60,8 +60,8 @@
         			$("#itemeEditForm").form("load",data);
         			
         			// 加载商品描述
-        			$.getJSON('/rest/item/desc/'+data.id,function(_data){
-        				itemEditEditor.html(_data.itemDesc);
+        			$.getJSON('/rest/item/desc/'+data.id,function(data){
+        				itemEditEditor.html(data.itemDesc);
         			});
         			        			
         			TAOTAO.init({

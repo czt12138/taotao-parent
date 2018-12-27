@@ -150,4 +150,12 @@ public class CartServiceImpl  implements CartService{
 
 
     }
+
+
+    @Override
+    public void clearCart(long userId) {
+
+        template.delete("iit_" + userId);
+
+    }
 }

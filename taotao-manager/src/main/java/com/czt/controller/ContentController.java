@@ -15,7 +15,7 @@ import java.util.Map;
  *  @项目名：  taotao-parent 
  *  @包名：    com.czt.controller
  *  @文件名:   ContentController
- *  @创建者:   czt
+ *  @创建者:   XuKu
  *  @创建时间:  2018/9/29 14:49
  *  @描述：    内容管理
  */
@@ -31,7 +31,7 @@ public class ContentController {
 
         contentService.add(content);
 
-        return  "success!!";
+        return  "ok";
 
 
     }

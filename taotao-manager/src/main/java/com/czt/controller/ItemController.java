@@ -2,30 +2,38 @@ package com.czt.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.czt.pojo.Item;
+import com.czt.pojo.ItemCat;
+import com.czt.pojo.ItemDesc;
+import com.czt.service.ItemCatService;
 import com.czt.service.ItemService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /*
  *  @项目名：  taotao-parent 
  *  @包名：    com.czt.controller
  *  @文件名:   ItemController
- *  @创建者:   czt
+ *  @创建者:   XuKu
  *  @创建时间:  2018/9/26 10:01
  *  @描述：    商品处理控制器
  */
 
-@Controller //视图解析器可以解析视图，从而跳转页面
+@Controller
 public class ItemController {
 
     @Reference
     private ItemService itemService;
+
+    @Reference
+    private ItemCatService itemCatService;
 
     /**
      * 添加商品
@@ -74,30 +82,31 @@ public class ItemController {
 
     /**
      * 显示描述信息
-     * @param item_id
+     * @param id
      * @return
      */
-    @RequestMapping(value = "/rest/item/desc/item_id",method = RequestMethod.POST)
+    @RequestMapping(value = "/rest/item/desc/{id}",method = RequestMethod.GET)
     @ResponseBody
-    public String show_desc(long item_id){
+    public List<ItemDesc> show_desc(@PathVariable long id){
 
-        int result = itemService.show_desc(item_id);
-        System.out.println("result=" + result);
+        List<ItemDesc> itemDesc = itemService.show_desc(id);
 
-        return  "success!!";
+        return itemDesc;
 
     }
 
-    @RequestMapping(value = "/rest/item/cat/id",method = RequestMethod.POST)
+    @RequestMapping(value = "/rest/item/cat/{id}",method = RequestMethod.GET)
     @ResponseBody
-    public String show_cat(Long id){
+    public List<ItemCat> show_cat(@PathVariable long id){
 
-        int result = itemService.show_cat(id);
-        System.out.println("result=" + result);
+        System.out.println("id:" + id);
+        List<ItemCat> itemCats = itemCatService.getCategoryByParentId(id);
 
-        return  "success!!";
+        return itemCats;
 
     }
+
+
 
 
     @RequestMapping(value = "/rest/item/update",method = RequestMethod.POST)

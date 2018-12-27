@@ -25,7 +25,7 @@ import java.util.Map;
  *  @项目名：  taotao-parent 
  *  @包名：    com.czt.controller
  *  @文件名:   OrderController
- *  @创建者:   Czt
+ *  @创建者:   XuKu
  *  @创建时间:  2018/12/13 21:33
  *  @描述：   处理订单
  */
@@ -73,6 +73,9 @@ public class OrderController {
         Map<String,String> map = new HashMap<>();
         map.put("status","200");
         map.put("data",orderId);
+
+        //提交订单后清除购物车数据
+        cartService.clearCart(userId);
 
         return  map;
     }

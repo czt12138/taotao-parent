@@ -1,7 +1,10 @@
 package com.czt.service;
 
 import com.czt.pojo.Item;
+import com.czt.pojo.ItemDesc;
 import com.github.pagehelper.PageInfo;
+
+import java.util.List;
 
 /*
  *  @项目名：  taotao-parent 
@@ -17,9 +20,9 @@ public interface ItemService {
 
     PageInfo<Item> list(int page, int rows);
 
-    int show_desc(long item_id);
+    List<ItemDesc> show_desc(long item_id);
 
-    int show_cat(long id);
+
 
     int updateItem(Item item);
 

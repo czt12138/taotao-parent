@@ -4,6 +4,7 @@ import com.czt.service.OrderService;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.scheduling.quartz.QuartzJobBean;
+import org.springframework.stereotype.Component;
 
 /*
  *  @项目名：  taotao-parent 
@@ -13,9 +14,10 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
  *  @创建时间:  2018/12/20 12:39
  *  @描述：    清除工作
  */
-
-
+@Component
 public class OrderJob extends QuartzJobBean{
+
+
 
 
     @Override

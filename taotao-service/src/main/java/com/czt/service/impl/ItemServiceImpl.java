@@ -31,6 +31,8 @@ public class ItemServiceImpl implements ItemService {
     @Autowired
     private ItemDescMapper itemDescMapper;
 
+
+
     @Autowired
     private JmsMessagingTemplate template;
 
@@ -77,29 +79,16 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public int show_desc(long item_id) {
+    public List<ItemDesc> show_desc(long item_id) {
 
         ItemDesc itemDesc = new ItemDesc();
         itemDesc.setItemId(item_id);
 
-       int result = itemDescMapper.updateByPrimaryKeySelective(itemDesc);
-
-        System.out.println("result=" + result);
-
-        return result;
+        return itemDescMapper.select(itemDesc);
 
     }
 
-    @Override
-    public int show_cat(long id) {
 
-        Item item = new Item();
-        item.setId(id);
-        int result = itemMapper.updateByPrimaryKeySelective(item);
-        System.out.println("result=" + result);
-
-        return result;
-    }
 
 
     @Override

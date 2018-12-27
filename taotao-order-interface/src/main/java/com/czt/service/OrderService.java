@@ -26,11 +26,6 @@ public interface OrderService {
      */
     Order findOrderById(String id);
 
-    /**
-     * 清空购物车
-     * @param userId
-     */
-    // void clearCart(Long userId,long itemId);
 
     /**
      * 清除无效订单

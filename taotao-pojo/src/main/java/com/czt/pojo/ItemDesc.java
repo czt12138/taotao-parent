@@ -12,11 +12,11 @@
 
 package com.czt.pojo;
 
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 /**
  * 商品描述表(TB_ITEM_DESC)
@@ -121,5 +121,15 @@ public class ItemDesc implements java.io.Serializable {
      */
     public void setUpdated(Date updated) {
         this.updated = updated;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemDesc{" +
+                "itemId=" + itemId +
+                ", itemDesc='" + itemDesc + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
+                '}';
     }
 }

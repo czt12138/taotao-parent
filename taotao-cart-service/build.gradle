@@ -1,0 +1,30 @@
+group 'com.czt'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    //SpringBoot 依赖
+    compile("org.springframework.boot:spring-boot-starter-web:1.5.10.RELEASE")
+
+    //数据库依赖
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.17'
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '1.5.10.RELEASE'
+
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.2.4'
+
+    compile project(":taotao-cart-interface")
+
+    compile project(":taotao-service")
+}
